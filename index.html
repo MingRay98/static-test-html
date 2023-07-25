@@ -67,6 +67,7 @@
         windowSize.scale +
         ', user-scalable=no'
       document.getElementById('viewport').content = str;
+      console.log('changeSize')
     }
     const is14ProOr14Max = () => {
       if (!isIOS()) return false
@@ -75,7 +76,7 @@
       return false
     }
     // if (!is14ProOr14Max())
-      changeSize()
+    changeSize()
   </script>
   <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
   <div id="YMK-module"></div>
