@@ -48,8 +48,9 @@
 </head>
 
 <body style="margin:0;padding:0">
+  <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
   <script>
-    alert('before window.innerHeight = ' + window.innerHeight);
+    const bewh = 'before window.innerHeight = ' + window.innerHeight
     const windowSize = {
       width: document.documentElement.clientWidth,
       height: document.documentElement.clientHeight,
@@ -105,9 +106,6 @@
         autoOpenHandAR: true,
         debug: data.debug,
       };
-      window.alert('scale = ' + windowSize.scale)
-      window.alert('after window.innerHeight = ' + window.innerHeight)
-      window.alert('window.innerHeight * windowSize.scale = ' + window.innerHeight * windowSize.scale)
     }
 
     const onOpenModule = () => {
@@ -121,6 +119,13 @@
       window.YMK.init({
         ...initData
       });
+      window.YMK.addEventListener('loaded', () => {
+        const vConsole = new window.VConsole();
+        console.log(bewh)
+        console.log('scale = ' + windowSize.scale)
+        console.log('after window.innerHeight = ' + window.innerHeight)
+        console.log('window.innerHeight * windowSize.scale = ' + window.innerHeight * windowSize.scale)
+      })
     };
   </script>
 </body>
