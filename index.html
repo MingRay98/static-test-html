@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" id="viewport"
@@ -43,29 +44,29 @@
       margin-top: 20px;
       color: #333333;
     }
-
   </style>
 </head>
+
 <body style="margin:0;padding:0">
   <script>
+    alert('before window.innerHeight = ' + window.innerHeight);
+    const windowSize = {
+      width: document.documentElement.clientWidth,
+      height: document.documentElement.clientHeight,
+      ratio: window.devicePixelRatio,
+      scale: document.documentElement.clientWidth / 375
+    };
     (function () {
-      const windowSize = {
-        width: document.documentElement.clientWidth,
-        height: document.documentElement.clientHeight,
-        ratio: window.devicePixelRatio,
-        scale: document.documentElement.clientWidth / 375
-      },
-        str =
-          'width=375, initial-scale=' +
-          windowSize.scale +
-          ', maximum-scale=' +
-          windowSize.scale +
-          ', minimum-scale=' +
-          windowSize.scale +
-          ', user-scalable=no'
+      str =
+        'width=375, initial-scale=' +
+        windowSize.scale +
+        ', maximum-scale=' +
+        windowSize.scale +
+        ', minimum-scale=' +
+        windowSize.scale +
+        ', user-scalable=no'
       document.getElementById('viewport').content = str;
-    })
-    alert('window.innerHeight = ' + windowSize.height)
+    })()
   </script>
   <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
   <div id="YMK-module"></div>
@@ -104,6 +105,9 @@
         autoOpenHandAR: true,
         debug: data.debug,
       };
+      window.alert('scale = ' + windowSize.scale)
+      window.alert('after window.innerHeight = ' + window.innerHeight)
+      window.alert('window.innerHeight * windowSize.scale = ' + window.innerHeight * windowSize.scale)
     }
 
     const onOpenModule = () => {
@@ -120,4 +124,5 @@
     };
   </script>
 </body>
+
 </html>
