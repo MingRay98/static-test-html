@@ -74,13 +74,9 @@
       console.log('changeSize')
     }
     const is14ProOr14Max = () => {
-      if (!isIOS)
-        return false
-      if (window.screen.width === 393 && window.screen.height === 852)
-        return true
-
-      if (window.screen.width === 430 && window.screen.height === 932)
-        return true
+      if (!isIOS()) return false
+      if (window.screen.width === 393 && window.screen.height === 852) return true
+      if (window.screen.width === 430 && window.screen.height === 932) return true
       return false
     }
     if (!is14ProOr14Max())
