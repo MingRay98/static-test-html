@@ -57,10 +57,6 @@
       ratio: window.devicePixelRatio,
       scale: document.documentElement.clientWidth / 375
     };
-    const isIOS = () => {
-      const userAgent = window.navigator.userAgent.toLowerCase();
-      return /iphone|ipad|ipod/.test(userAgent);
-    };
     const changeSize = () => {
       str =
         'width=375, initial-scale=' +
@@ -71,7 +67,6 @@
         windowSize.scale +
         ', user-scalable=no'
       document.getElementById('viewport').content = str;
-      console.log('changeSize')
     }
     const is14ProOr14Max = () => {
       if (!isIOS()) return false
@@ -79,7 +74,7 @@
       if (window.screen.width === 430 && window.screen.height === 932) return true
       return false
     }
-    if (!is14ProOr14Max())
+    // if (!is14ProOr14Max())
       changeSize()
   </script>
   <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
