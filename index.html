@@ -49,22 +49,21 @@
 
 <body style="margin:0;padding:0">
   <script>
-    alert('before window.innerHeight = ' + window.innerHeight);
-    const windowSize = {
-      width: document.documentElement.clientWidth,
-      height: document.documentElement.clientHeight,
-      ratio: window.devicePixelRatio,
-      scale: document.documentElement.clientWidth / 375
-    };
     (function () {
-      str =
-        'width=375, initial-scale=' +
-        windowSize.scale +
-        ', maximum-scale=' +
-        windowSize.scale +
-        ', minimum-scale=' +
-        windowSize.scale +
-        ', user-scalable=no'
+      const windowSize = {
+        width: document.documentElement.clientWidth,
+        height: document.documentElement.clientHeight,
+        ratio: window.devicePixelRatio,
+        scale: document.documentElement.clientWidth / 375
+      },
+        str =
+          'width=375, initial-scale=' +
+          windowSize.scale +
+          ', maximum-scale=' +
+          windowSize.scale +
+          ', minimum-scale=' +
+          windowSize.scale +
+          ', user-scalable=no'
       document.getElementById('viewport').content = str;
     })()
   </script>
@@ -105,9 +104,6 @@
         autoOpenHandAR: true,
         debug: data.debug,
       };
-      window.alert('scale = ' + windowSize.scale)
-      window.alert('after window.innerHeight = ' + window.innerHeight)
-      window.alert('window.innerHeight * windowSize.scale = ' + window.innerHeight * windowSize.scale)
     }
 
     const onOpenModule = () => {
