@@ -58,7 +58,7 @@
       scale: document.documentElement.clientWidth / 375
     };
     const changeSize = () => {
-      const str = `height=${Math.ceil(windowSize.height / windowSize.scale)}, width=375, user-scalable=no`
+      const str = `width=376, user-scalable=no`
       document.getElementById('viewport').content = str;
       console.log('changeSize')
     }
