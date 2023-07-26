@@ -66,9 +66,9 @@
     changeSize()
     console.log('c after window.innerHeight = ' + window.innerHeight)
     for (let i = 0; i < 10; i++) {
-      console.log('window.innerHeight', window.innerHeight, 'windowSize.height / windowSize.scale', windowSize.height / windowSize.scale)
-      if (window.innerHeight > windowSize.height / windowSize.scale)
-        windowSize.scale -= 0.001
+      console.log('windowSize.height', windowSize.height, 'window.innerHeight * windowSize.scale', window.innerHeight * windowSize.scale)
+      if (windowSize.height > window.innerHeight * windowSize.scale)
+        windowSize.scale += 0.001
       else
         break
     }
@@ -137,9 +137,9 @@
         const vConsole = new window.VConsole();
         console.log(bewh)
         console.log('scale = ' + windowSize.scale)
-        console.log('after window.innerHeight = ' + window.innerHeight)
+        console.log('the last window.innerHeight = ' + window.innerHeight)
         console.log('window.innerHeight * windowSize.scale = ' + window.innerHeight * windowSize.scale)
-        console.log('v8');
+        console.log('v9');
       })
     };
   </script>
