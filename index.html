@@ -58,17 +58,16 @@
       scale: document.documentElement.clientWidth / 375
     };
     const changeSize = () => {
-      str =
-        `height=${Math.ceil(windowSize.height / windowSize.scale)}, user-scalable=no`
+      const str = `width=375, height=${Math.ceil(windowSize.height / windowSize.scale)}, user-scalable=no`
       document.getElementById('viewport').content = str;
       console.log('changeSize')
     }
-    const is14ProOr14Max = () => {
-      if (!isIOS()) return false
-      if (window.screen.width === 393 && window.screen.height === 852) return true
-      if (window.screen.width === 430 && window.screen.height === 932) return true
-      return false
-    }
+    // const is14ProOr14Max = () => {
+    //   if (!isIOS()) return false
+    //   if (window.screen.width === 393 && window.screen.height === 852) return true
+    //   if (window.screen.width === 430 && window.screen.height === 932) return true
+    //   return false
+    // }
     // if (!is14ProOr14Max())
     changeSize()
   </script>
@@ -128,7 +127,7 @@
         console.log('scale = ' + windowSize.scale)
         console.log('after window.innerHeight = ' + window.innerHeight)
         console.log('window.innerHeight * windowSize.scale = ' + window.innerHeight * windowSize.scale)
-        console.log('v4');
+        console.log('v5');
       })
     };
   </script>
