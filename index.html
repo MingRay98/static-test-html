@@ -58,7 +58,7 @@
       scale: document.documentElement.clientWidth / 375
     };
     const changeSize = () => {
-      const str = `width=375, height=${Math.ceil(windowSize.height / windowSize.scale)}, user-scalable=no`
+      const str = `height=${Math.ceil(windowSize.height / windowSize.scale)}, width=375, user-scalable=no`
       document.getElementById('viewport').content = str;
       console.log('changeSize')
     }
@@ -127,7 +127,7 @@
         console.log('scale = ' + windowSize.scale)
         console.log('after window.innerHeight = ' + window.innerHeight)
         console.log('window.innerHeight * windowSize.scale = ' + window.innerHeight * windowSize.scale)
-        console.log('v5');
+        console.log('v6');
       })
     };
   </script>
