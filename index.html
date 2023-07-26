@@ -51,17 +51,29 @@
   <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
   <script>
     const bewh = 'before window.innerHeight = ' + window.innerHeight
-    const windowSize = {
+    console.log('c before window.innerHeight = ' + window.innerHeight)
+    let windowSize = {
       width: document.documentElement.clientWidth,
       height: document.documentElement.clientHeight,
       ratio: window.devicePixelRatio,
       scale: document.documentElement.clientWidth / 375
     };
     const changeSize = () => {
-      const str = `width=376, user-scalable=no`
-      document.getElementById('viewport').content = str;
+      const viewportContent = `width= 375, initial-scale=${windowSize.scale}, maximum-scale==${windowSize.scale}, minimum-scale==${windowSize.scale}, user-scalable=no`
+      document.getElementById('viewport').content = viewportContent;
       console.log('changeSize')
     }
+    changeSize()
+    console.log('c after window.innerHeight = ' + window.innerHeight)
+    for (let i = 0; i < 10; i++) {
+      console.log('window.innerHeight', window.innerHeight, 'windowSize.height / windowSize.scale', windowSize.height / windowSize.scale)
+      if (window.innerHeight > windowSize.height / windowSize.scale)
+        windowSize.scale -= 0.001
+      else
+        break
+    }
+    changeSize()
+    console.log('cc after window.innerHeight = ' + window.innerHeight, ' windowSize.scale', windowSize.scale)
     // const is14ProOr14Max = () => {
     //   if (!isIOS()) return false
     //   if (window.screen.width === 393 && window.screen.height === 852) return true
@@ -69,7 +81,7 @@
     //   return false
     // }
     // if (!is14ProOr14Max())
-    changeSize()
+
   </script>
   <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
   <div id="YMK-module"></div>
@@ -127,7 +139,7 @@
         console.log('scale = ' + windowSize.scale)
         console.log('after window.innerHeight = ' + window.innerHeight)
         console.log('window.innerHeight * windowSize.scale = ' + window.innerHeight * windowSize.scale)
-        console.log('v7');
+        console.log('v8');
       })
     };
   </script>
