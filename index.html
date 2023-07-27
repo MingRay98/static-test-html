@@ -76,18 +76,6 @@
       changeViewportContent();
     }
     changeViewportContent();
-    let changeInnerHeight1 = window.innerHeight
-    checkViewportInnerHeightLegal();
-    let changeInnerHeight2 = window.innerHeight
-    checkViewportInnerHeightLegal();
-    // const is14ProOr14Max = () => {
-    //   if (!isIOS()) return false
-    //   if (window.screen.width === 393 && window.screen.height === 852) return true
-    //   if (window.screen.width === 430 && window.screen.height === 932) return true
-    //   return false
-    // }
-    // if (!is14ProOr14Max())
-
   </script>
   <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
   <div id="YMK-module"></div>
@@ -110,6 +98,8 @@
     let initData = {}
 
     const getInitData = async () => {
+      checkViewportInnerHeightLegal();
+      
       const paras = location.search.split("=")[1]
       if (!paras)
         return
