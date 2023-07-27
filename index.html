@@ -56,6 +56,7 @@
     const bewh = 'before window.innerHeight = ' + window.innerHeight
     console.log('c before window.innerHeight = ' + window.innerHeight)
     const origscale = document.documentElement.clientWidth / 375
+    let changeInnerHeight1 
     let windowSize = {
       width: document.documentElement.clientWidth,
       height: document.documentElement.clientHeight,
@@ -99,7 +100,7 @@
 
     const getInitData = async () => {
       checkViewportInnerHeightLegal();
-
+      changeInnerHeight1 = window.innerHeight
       const paras = location.search.split("=")[1]
       if (!paras)
         return
@@ -134,11 +135,10 @@
         console.log(bewh)
         console.log('origin scale = ' + origscale)
         console.log('scale = ' + windowSize.scale)
-        console.log('1 window.innerHeight = ' + changeInnerHeight1)
-        console.log('2 window.innerHeight = ' + changeInnerHeight2)
+        console.log('the first window.innerHeight = ' + changeInnerHeight1)
         console.log('the last window.innerHeight = ' + window.innerHeight)
         console.log('window.innerHeight * windowSize.scale = ' + window.innerHeight * windowSize.scale)
-        console.log('v13');
+        console.log('v14');
       })
     };
   </script>
