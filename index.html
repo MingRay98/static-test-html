@@ -76,7 +76,9 @@
       changeViewportContent();
     }
     changeViewportContent();
-    let firstChangeInnerHeight = window.innerHeight
+    let changeInnerHeight1 = window.innerHeight
+    checkViewportInnerHeightLegal();
+    let changeInnerHeight2 = window.innerHeight
     checkViewportInnerHeightLegal();
     // const is14ProOr14Max = () => {
     //   if (!isIOS()) return false
@@ -142,10 +144,11 @@
         console.log(bewh)
         console.log('origin scale = ' + origscale)
         console.log('scale = ' + windowSize.scale)
-        console.log('the first window.innerHeight = ' + firstChangeInnerHeight)
+        console.log('1 window.innerHeight = ' + changeInnerHeight1)
+        console.log('2 window.innerHeight = ' + changeInnerHeight2)
         console.log('the last window.innerHeight = ' + window.innerHeight)
         console.log('window.innerHeight * windowSize.scale = ' + window.innerHeight * windowSize.scale)
-        console.log('v11');
+        console.log('v12');
       })
     };
   </script>
