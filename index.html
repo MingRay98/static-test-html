@@ -55,29 +55,29 @@
   <script>
     const bewh = 'before window.innerHeight = ' + window.innerHeight
     console.log('c before window.innerHeight = ' + window.innerHeight)
-    const origscale =  document.documentElement.clientWidth / 375
+    const origscale = document.documentElement.clientWidth / 375
     let windowSize = {
       width: document.documentElement.clientWidth,
       height: document.documentElement.clientHeight,
       ratio: window.devicePixelRatio,
       scale: document.documentElement.clientWidth / 375
     };
-    const changeSize = () => {
+    const changeViewportContent = () => {
       const viewportContent = `width= 375, initial-scale=${windowSize.scale}, maximum-scale==${windowSize.scale}, minimum-scale==${windowSize.scale}, user-scalable=no`
       document.getElementById('viewport').content = viewportContent;
-      console.log('changeSize')
     }
-    changeSize()
-    console.log('c after window.innerHeight = ' + window.innerHeight)
-    for (let i = 0; i < 100; i++) {
-      console.log('windowSize.height', windowSize.height, 'window.innerHeight * windowSize.scale', window.innerHeight * windowSize.scale)
-      if (windowSize.height > window.innerHeight * windowSize.scale)
-        windowSize.scale += 0.001
-      else
-        break
+    const checkViewportInnerHeightLegal = () => {
+      for (let i = 0; i < 10; i++) {
+        if (windowSize.height > window.innerHeight * windowSize.scale)
+          windowSize.scale += 0.001
+        else
+          break
+      }
+      changeViewportContent();
     }
-    changeSize()
-    console.log('cc after window.innerHeight = ' + window.innerHeight, ' windowSize.scale', windowSize.scale)
+    changeViewportContent();
+    let firstChangeInnerHeight = window.innerHeight
+    checkViewportInnerHeightLegal();
     // const is14ProOr14Max = () => {
     //   if (!isIOS()) return false
     //   if (window.screen.width === 393 && window.screen.height === 852) return true
@@ -142,9 +142,10 @@
         console.log(bewh)
         console.log('origin scale = ' + origscale)
         console.log('scale = ' + windowSize.scale)
+        console.log('the first window.innerHeight = ' + firstChangeInnerHeight)
         console.log('the last window.innerHeight = ' + window.innerHeight)
         console.log('window.innerHeight * windowSize.scale = ' + window.innerHeight * windowSize.scale)
-        console.log('v10');
+        console.log('v11');
       })
     };
   </script>
