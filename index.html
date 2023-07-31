@@ -78,16 +78,16 @@
       const viewportContent = `width= 375, initial-scale=${windowSize.scale}, maximum-scale==${windowSize.scale}, minimum-scale==${windowSize.scale}, user-scalable=no`
       document.getElementById('viewport').content = viewportContent;
     }
-    // const checkViewportInnerHeightLegal = () => {
-    //   for (let i = 0; i < 10; i++) {
-    //     if (windowSize.height > window.innerHeight * windowSize.scale)
-    //       windowSize.scale += 0.001
-    //     else
-    //       break
-    //   }
-    //   changeViewportContent();
-    // }
-    // changeViewportContent();
+    const checkViewportInnerHeightLegal = () => {
+      for (let i = 0; i < 10; i++) {
+        if (windowSize.height > window.innerHeight * windowSize.scale)
+          windowSize.scale += 0.001
+        else
+          break
+      }
+      changeViewportContent();
+    }
+    changeViewportContent();
   </script>
   <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
   <div id="YMK-module"></div>
@@ -134,7 +134,7 @@
     }
 
     window.addEventListener('load', getInitData)
-    window.addEventListener('load', changeViewportContent)
+    window.addEventListener('load', checkViewportInnerHeightLegal)
 
     window.ymkAsyncInit = function () {
       window.YMK.addEventListener('opened', onOpenModule)
@@ -151,7 +151,7 @@
         console.log('the last window.outerHeight = ' + window.outerHeight)
         console.log('window.innerHeight * windowSize.scale = ' + window.innerHeight * windowSize.scale)
         console.log('document.documentElement.clientHeight =' + document.documentElement.clientHeight)
-        console.log('v16');
+        console.log('v17');
       })
     };
   </script>
