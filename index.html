@@ -74,8 +74,10 @@
       ratio: window.devicePixelRatio,
       scale: document.documentElement.clientWidth / 375
     };
-    const changeViewportContent = () => {
-      const viewportContent = `width= 375, initial-scale=${windowSize.scale}, maximum-scale==${windowSize.scale}, minimum-scale==${windowSize.scale}, user-scalable=no`
+    const changeViewportContent = (scale) => {
+      let viewportContent = `width= 375`
+      if (scale)
+        viewportContent += `, initial-scale=${windowSize.scale}, maximum-scale=${windowSize.scale}, minimum-scale=${windowSize.scale}, user-scalable=no`
       document.getElementById('viewport').content = viewportContent;
     }
     const checkViewportInnerHeightLegal = () => {
@@ -85,7 +87,7 @@
         else
           break
       }
-      changeViewportContent();
+      changeViewportContent(windowSize.scale);
     }
     changeViewportContent();
   </script>
@@ -151,7 +153,7 @@
         console.log('the last window.outerHeight = ' + window.outerHeight)
         console.log('window.innerHeight * windowSize.scale = ' + window.innerHeight * windowSize.scale)
         console.log('document.documentElement.clientHeight =' + document.documentElement.clientHeight)
-        console.log('v17');
+        console.log('v19');
       })
     };
   </script>
