@@ -14,6 +14,8 @@
   <style>
     body {
       font-family: 'PingFang SC, -apple-system, BlinkMacSystemFont, sans-serif';
+      height: 100vh;
+      overflow: hidden;
     }
 
     #loadingContainer {
@@ -31,9 +33,20 @@
     }
 
     #loadingIcon {
-      width: 48px;
-      height: 48px;
+      width: 56px;
+      height: 56px;
       object-fit: contain;
+      animation: rotating 1s linear infinite;
+    }
+
+    @keyframes rotating {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     #text {
@@ -56,7 +69,7 @@
     const bewh = 'before window.innerHeight = ' + window.innerHeight
     console.log('c before window.innerHeight = ' + window.innerHeight)
     const origscale = document.documentElement.clientWidth / 375
-    let changeInnerHeight1 
+    let changeInnerHeight1
     let windowSize = {
       width: document.documentElement.clientWidth,
       height: document.documentElement.clientHeight,
@@ -82,7 +95,7 @@
   <div id="YMK-module"></div>
   <div id="loadingContainer">
     <img id="loadingIcon"
-      src="data:image/svg+xml;base64,PHN2ZyBpZD0iZWdYY1QzdW5JNWkxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIg0KICB2aWV3Qm94PSIwIDAgNDggNDgiIHNoYXBlLXJlbmRlcmluZz0iZ2VvbWV0cmljUHJlY2lzaW9uIiB0ZXh0LXJlbmRlcmluZz0iZ2VvbWV0cmljUHJlY2lzaW9uIj4NCiAgPHBhdGggaWQ9ImVnWGNUM3VuSTVpMiINCiAgICBkPSJNNDIuOTc2NywyMy45NUM0Mi40ODE2LDM0LjAwMTksMzQuMTc0OCw0MS45OTk4LDI0LDQxLjk5OThzLTE4LjQ4MTU4LTcuOTk3OS0xOC45NzY2NS0xOC4wNDk4QzUuMDA3ODQsMjQuMjY0Nyw1LDI0LjU4MTUsNSwyNC45MDAxYzAsMTAuNDkzNSw4LjUwNjYsMTksMTksMTlzMTktOC41MDY1LDE5LTE5YzAtLjMxODYtLjAwNzgtLjYzNTQtLjAyMzMtLjk1MDFaIg0KICAgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMC4wMDAwMDEpIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGwtcnVsZT0iZXZlbm9kZCIgLz4NCiAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIGZyb209IjAiIHRvPSIzNjAiDQogICAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIGR1cj0iMXMiPg0KICA8L2FuaW1hdGVUcmFuc2Zvcm0+DQo8L3N2Zz4=">
+      src="data:image/svg+xml;base64,PHN2ZyBpZD0iZWdYY1QzdW5JNWkxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNDgiIGhlaWdodD0iNDgiDQogIHZpZXdCb3g9IjAgMCA0OCA0OCIgc2hhcGUtcmVuZGVyaW5nPSJnZW9tZXRyaWNQcmVjaXNpb24iIHRleHQtcmVuZGVyaW5nPSJnZW9tZXRyaWNQcmVjaXNpb24iPg0KICA8cGF0aCBpZD0iZWdYY1QzdW5JNWkyIg0KICAgIGQ9Ik00Mi45NzY3LDIzLjk1QzQyLjQ4MTYsMzQuMDAxOSwzNC4xNzQ4LDQxLjk5OTgsMjQsNDEuOTk5OHMtMTguNDgxNTgtNy45OTc5LTE4Ljk3NjY1LTE4LjA0OThDNS4wMDc4NCwyNC4yNjQ3LDUsMjQuNTgxNSw1LDI0LjkwMDFjMCwxMC40OTM1LDguNTA2NiwxOSwxOSwxOXMxOS04LjUwNjUsMTktMTljMC0uMzE4Ni0uMDA3OC0uNjM1NC0uMDIzMy0uOTUwMVoiDQogICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwLjAwMDAwMSkiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbC1ydWxlPSJldmVub2RkIiAvPg0KPC9zdmc+">
     <div id="text">将镜头对准您的手腕</div>
   </div>
   <div id="timed"></div>
@@ -138,8 +151,10 @@
         console.log('scale = ' + windowSize.scale)
         console.log('the first window.innerHeight = ' + changeInnerHeight1)
         console.log('the last window.innerHeight = ' + window.innerHeight)
+        console.log('the last window.outerHeight = ' + window.outerHeight)
         console.log('window.innerHeight * windowSize.scale = ' + window.innerHeight * windowSize.scale)
-        console.log('v14');
+        console.log(' document.documentElement.clientHeight =' + document.documentElement.clientHeight)
+        console.log('v15');
       })
     };
   </script>
