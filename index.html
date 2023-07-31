@@ -14,8 +14,6 @@
   <style>
     body {
       font-family: 'PingFang SC, -apple-system, BlinkMacSystemFont, sans-serif';
-      height: 100vh;
-      overflow: hidden;
     }
 
     #loadingContainer {
@@ -63,7 +61,7 @@
   </style>
 </head>
 
-<body style="margin:0;padding:0">
+<body style="margin:0;padding:0; height: 100vh; overflow: hidden;">
   <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
   <script>
     const bewh = 'before window.innerHeight = ' + window.innerHeight
@@ -136,7 +134,7 @@
     }
 
     window.addEventListener('load', getInitData)
-    // window.addEventListener('load', changeViewportContent)
+    window.addEventListener('load', changeViewportContent)
 
     window.ymkAsyncInit = function () {
       window.YMK.addEventListener('opened', onOpenModule)
@@ -152,8 +150,8 @@
         console.log('the last window.innerHeight = ' + window.innerHeight)
         console.log('the last window.outerHeight = ' + window.outerHeight)
         console.log('window.innerHeight * windowSize.scale = ' + window.innerHeight * windowSize.scale)
-        console.log(' document.documentElement.clientHeight =' + document.documentElement.clientHeight)
-        console.log('v15');
+        console.log('document.documentElement.clientHeight =' + document.documentElement.clientHeight)
+        console.log('v16');
       })
     };
   </script>
