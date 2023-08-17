@@ -59,7 +59,12 @@
 </head>
 
 <body style="margin:0;padding:0">
+  <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
   <script>
+    const bewh = 'before window.innerHeight = ' + window.innerHeight
+    console.log('c before window.innerHeight = ' + window.innerHeight)
+    const origscale = document.documentElement.clientWidth / 375
+    let changeInnerHeight1
     let windowSize = {
       width: document.documentElement.clientWidth,
       height: document.documentElement.clientHeight,
@@ -117,6 +122,7 @@
     let initData = {}
 
     const getInitData = async () => {
+      changeInnerHeight1 = window.innerHeight
       const paras = location.search.split("=")[1]
       if (!paras)
         return
@@ -147,6 +153,18 @@
       window.YMK.init({
         ...initData
       });
+      window.YMK.addEventListener('loaded', () => {
+        const vConsole = new window.VConsole();
+        console.log(bewh)
+        console.log('origin scale = ' + origscale)
+        console.log('scale = ' + windowSize.scale)
+        console.log('the first window.innerHeight = ' + changeInnerHeight1)
+        console.log('the last window.innerHeight = ' + window.innerHeight)
+        console.log('the last window.outerHeight = ' + window.outerHeight)
+        console.log('window.innerHeight * windowSize.scale = ' + window.innerHeight * windowSize.scale)
+        console.log('document.documentElement.clientHeight =' + document.documentElement.clientHeight)
+        console.log('v21');
+      })
     };
   </script>
 </body>
