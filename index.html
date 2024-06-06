@@ -83,7 +83,10 @@
     }
     changeViewportContent();
 
-    const redirectPage = () => jd.miniProgram.redirectTo({url: 'pages/logs/logs'})
+    const redirectPage = () => {
+      jd.miniProgram.postMessage({data: 'fromRedirectPage'})
+      jd.miniProgram.redirectTo({url: '/pages/logs/logs'})
+    }
 
     const postMessage = (data) => {
       jd.miniProgram.postMessage({data: 'fromMy'})
