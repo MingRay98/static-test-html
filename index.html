@@ -83,10 +83,15 @@
     }
     changeViewportContent();
 
-    const redirectPage = () => jd.miniProgram.navigateTo({url: '../logs/logs'})
+    const redirectPage = () => jd.miniProgram.redirectTo({url: 'pages/logs/logs'})
+
+    const postMessage = (data) => {
+      jd.miniProgram.postMessage({data: 'fromMy'})
+    }
   </script>
   <script type="text/javascript" src="https://storage.360buyimg.com/api-test/jssdk.js"></script>
-  <button onclick="redirectPage()">redirectTo1</button>
+  <button onclick="redirectPage()">redirectTo2</button>
+  <button onclick="postMessage()">postMessage1</button>
   <div id="YMK-module"></div>
   <div id="loadingContainer">
     <div id="loadingIcon">
