@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" id="viewport"
@@ -37,6 +38,7 @@
       from {
         transform: rotate(0deg);
       }
+
       to {
         transform: rotate(360deg);
       }
@@ -55,6 +57,7 @@
     }
   </style>
 </head>
+
 <body style="margin:0;padding:0">
   <script>
     let windowSize = {
@@ -79,8 +82,11 @@
       changeViewportContent(windowSize.scale);
     }
     changeViewportContent();
+
+    const redirectPage = () => jd.miniProgram.navigateTo({url: '../logs/logs'})
   </script>
   <script type="text/javascript" src="https://storage.360buyimg.com/api-test/jssdk.js"></script>
+  <button onclick="redirectPage()">redirectTo1</button>
   <div id="YMK-module"></div>
   <div id="loadingContainer">
     <div id="loadingIcon">
@@ -147,4 +153,5 @@
     };
   </script>
 </body>
+
 </html>
